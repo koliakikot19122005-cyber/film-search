@@ -1,11 +1,34 @@
+import { useState } from 'react';
+
+
 function SideBar() {
+    const [categories, setCategories] = useState([
+        { name: 'Action', selected: false },
+        { name: 'Comedy', selected: false },
+        { name: 'Drama', selected: false },
+    ]);
+    function selectToggle(index: number) {
+        setCategories(prevCategories => {
+            const newCategories = [...prevCategories];
+            newCategories[index].selected = !newCategories[index].selected;
+            console.log(newCategories[index].selected);
+            return newCategories;
+        });
+    }
     return (
         <aside>
-            <h2>SideBar</h2>
+            <h2>Categories</h2>
             <ul>
-                <li><a href="/link1">Link 1</a></li>
-                <li><a href="/link2">Link 2</a></li>
-                <li><a href="/link3">Link 3</a></li>
+                {categories.map((category, index) => (
+                    <li
+                        key={index}
+                        className={category.selected ? 'selected' : ''}
+                        onClick={() => {selectToggle(index)}}
+                    >
+                        {category.name}
+                        
+                    </li>
+                ))}
             </ul>
         </aside>
     );

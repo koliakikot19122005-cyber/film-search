@@ -1,9 +1,9 @@
 function Main() {
     return (
-        <div>
+        <main className="main">
             <h1>Film Search</h1>
             <p>Welcome to the Film Search App!</p>
-        </div>
+        </main>
     );
 }
 
