@@ -2,19 +2,24 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .main-container {
   display: flex;
   flex-direction: row;
+  min-height: calc(100vh - 7rem);
 }
-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #333;
   color: #fff;
-  padding: 10px;
+  height: 3rem;
   text-align: center;
+  padding: 0 1rem;
 }
+
 nav {
   padding: 10px;
 }
@@ -32,23 +37,26 @@ a {
   text-decoration: none;
 }
 
-nav ul a{
+nav ul a {
   color: #c5c5c5;
   text-decoration: none;
 }
 
 
 nav ul a:hover {
-    display: inline-block;
+  display: inline-block;
   color: #fff;
- transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 footer {
   background-color: #292929;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 10px;
   color: #fff;
+  height: 4rem;
 }
 
 
@@ -62,5 +70,3 @@ aside ul {
   margin: 0;
   padding: 0;
 }
-
-
