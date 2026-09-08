@@ -3,10 +3,27 @@ body {
   padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6  {
+  color: #F5F7FA;
+  font-family: 'Arial', sans-serif;
+}
+
+
+.logo img {
+  width: 18rem;
+  height: auto;
+}
+
+
+p {
+  color: #A9B4BF;
+  font-family: 'Arial', sans-serif;
+}
 .main-container {
   display: flex;
   flex-direction: row;
   min-height: calc(100vh - 7rem);
+  background-color: #0D1822;
 }
 
 .main {
@@ -18,8 +35,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #333;
-  color: #fff;
+  background-color: #071018;
+  color: #F5F7FA;
   height: 3rem;
   text-align: center;
   padding: 0 1rem;
@@ -43,7 +60,7 @@ a {
 }
 
 nav ul a {
-  color: #c5c5c5;
+  color: #F5F7FA;
   text-decoration: none;
 }
 
@@ -55,7 +72,7 @@ nav ul a:hover {
 }
 
 footer {
-  background-color: #292929;
+  background-color: #071018;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,13 +83,14 @@ footer {
 
 
 aside {
-  background-color: #949494;
+  background-color: #142330
 }
 
 aside ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  color: #A9B4BF;
 }
 
 aside ul li {
