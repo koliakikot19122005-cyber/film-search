@@ -9,15 +9,18 @@ export default function AdminCreatePage() {
   const [description, setDescription] = useState('');
   const [categories, setCategories] = useState(categoryList);
   const [filmList, setFilmList] = useState([]);
+const [selectedFilm, setSelectedFilm] = useState('');
 
   useEffect(() => {
     getFilmList().then((data) => {
       setFilmList(data);
+      setSelectedFilm(data[0]); 
     });
   }, []);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    console.log(selectedFilm,categories,title,description);
     //Відправити зібрані данні на сервер через lib/api.tsx (POST запит)
     //на стороні сервера приййняти данні
   }
@@ -55,7 +58,7 @@ export default function AdminCreatePage() {
           </div>
           <div className="film-list">
             <h3>Film List:</h3>
-            <select>
+            <select onChange={(e) => setSelectedFilm(e.target.value) }>
               {filmList.map((film, index) => (
                 <option key={index} value={film}>{film}</option>
               ))}
