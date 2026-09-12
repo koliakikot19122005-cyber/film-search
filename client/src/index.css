@@ -107,3 +107,71 @@ aside ul li.selected {
   color: #ffffff;
   background-color: #525252;
 }
+
+form{
+  background-color: #1A2B3C;
+  border-radius: 8px;
+  color: #F5F7FA;
+  display:  flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 20rem;
+  padding: 2rem;
+}
+
+form .submit-btn {
+  margin-top: 1rem;
+  background-color: #0d3661;
+  border: 1px solid #031a33;
+  border-radius: 4px;
+}
+
+form .tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+
+}
+
+form .tag-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+form .tag-container li {
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #2A3B4C;
+}
+
+form .tag-container li.selected {
+  background-color: #705304;
+  color: #fff;
+}
+
+
+textarea ,input, select {
+  background-color: #1A2B3C;
+  border: 1px solid #525252;
+  border-radius: 4px;
+  color: #F5F7FA;
+  padding: 8px;
+ display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.admin-create{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+width: 100%;
+}
+
+

@@ -1,12 +1,8 @@
 import { useState, useEffect } from 'react';
 import { getCategories } from '../lib/api';
-
+import { categoryList } from '../lib/categories';
 function SideBar() {
-    const [categories, setCategories] = useState([
-        { name: 'Action', selected: false },
-        { name: 'Comedy', selected: false },
-        { name: 'Drama', selected: false },
-    ]);
+    const [categories, setCategories] = useState(categoryList);
 
     useEffect(() => {
         const queryParams = getSelectedCategories();
