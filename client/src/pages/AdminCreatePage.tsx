@@ -1,7 +1,8 @@
 import AdminSideBar from '../components/AdminSideBar.tsx'
 import { categoryList } from '../lib/categories.ts'
 import { useState, useEffect } from 'react';
-import { getFilmList } from '../lib/api.ts';
+import { getFilmList, postNewFilm } from '../lib/api.ts';
+import type { FilmData } from '../lib/types.ts';
 
 
 export default function AdminCreatePage() {
@@ -9,20 +10,23 @@ export default function AdminCreatePage() {
   const [description, setDescription] = useState('');
   const [categories, setCategories] = useState(categoryList);
   const [filmList, setFilmList] = useState([]);
-const [selectedFilm, setSelectedFilm] = useState('');
+  const [selectedFilm, setSelectedFilm] = useState('');
 
   useEffect(() => {
     getFilmList().then((data) => {
       setFilmList(data);
-      setSelectedFilm(data[0]); 
+      setSelectedFilm(data[0]);
     });
   }, []);
 
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(selectedFilm,categories,title,description);
-    //Відправити зібрані данні на сервер через lib/api.tsx (POST запит)
-    //на стороні сервера приййняти данні
+    console.log(selectedFilm, categories, title, description);
+    const selectedCategories = categories.filter(item => item.selected).map(item => item.name)
+    const answer = postNewFilm({ url: selectedFilm, categories: selectedCategories, title, description })
+    alert(answer)
+    console.log(answer)
   }
 
   function tagToggle(i: number) {
@@ -58,7 +62,7 @@ const [selectedFilm, setSelectedFilm] = useState('');
           </div>
           <div className="film-list">
             <h3>Film List:</h3>
-            <select onChange={(e) => setSelectedFilm(e.target.value) }>
+            <select onChange={(e) => setSelectedFilm(e.target.value)}>
               {filmList.map((film, index) => (
                 <option key={index} value={film}>{film}</option>
               ))}

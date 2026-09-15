@@ -15,9 +15,10 @@ function AdminSideBar() {
             <h2>Categories</h2>
             <ul>
                 {subpages.map((subpage, index) => (
-                    <li><NavLink key={index} to={subpage.url} className={({ isActive }) => (isActive ? 'active' : '')}>
-                        {subpage.text}
-                    </NavLink></li>
+                    <li key={index + "adminsidebar"}>
+                        <NavLink to={subpage.url} className={({ isActive }) => (isActive ? 'active' : '')}>
+                            {subpage.text}
+                        </NavLink></li>
                 ))}
             </ul>
         </aside>
