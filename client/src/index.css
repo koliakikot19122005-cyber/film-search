@@ -3,22 +3,31 @@ body {
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6  {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #F5F7FA;
   font-family: 'Arial', sans-serif;
 }
 
+main {
+  padding: 10px;
+  text-align: center;
+}
+
+p {
+  color: #A9B4BF;
+  font-family: 'Arial', sans-serif;
+}
 
 .logo img {
   width: 18rem;
   height: auto;
 }
 
-
-p {
-  color: #A9B4BF;
-  font-family: 'Arial', sans-serif;
-}
 .main-container {
   display: flex;
   flex-direction: row;
@@ -26,9 +35,6 @@ p {
   background-color: #0D1822;
 }
 
-.main {
-  padding: 10px;
-}
 
 
 header {
@@ -108,11 +114,11 @@ aside ul li.selected {
   background-color: #525252;
 }
 
-form{
+form {
   background-color: #1A2B3C;
   border-radius: 8px;
   color: #F5F7FA;
-  display:  flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
@@ -156,22 +162,54 @@ form .tag-container li.selected {
 }
 
 
-textarea ,input, select {
+textarea,
+input,
+select {
   background-color: #1A2B3C;
   border: 1px solid #525252;
   border-radius: 4px;
   color: #F5F7FA;
   padding: 8px;
- display: block;
+  display: block;
   width: 100%;
   box-sizing: border-box;
 }
 
-.admin-create{
+.admin-create {
   display: flex;
   flex-direction: column;
   align-items: center;
-width: 100%;
+  width: 100%;
 }
 
 
+.film-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+
+}
+
+
+.film-card {
+  width: 200px;
+  height: 200px;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #705304;
+}
+
+.category-teg-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.category-teg {
+  background-color: #926d07;
+  border-radius: 1rem;
+  padding: 0 0.5rem;
+
+}

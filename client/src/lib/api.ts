@@ -4,7 +4,7 @@ import type { FilmData } from "./types";
 const apiUrl=" http://localhost:3001/api";
 const fileServerUrl="http://localhost:3000";
 
-export async function getCategories(qeryParams: string) {
+export async function getFilms(qeryParams: string) {
     const response = await axios.get(`${apiUrl}/films`, {
         params: {
             categories: qeryParams
@@ -25,3 +25,4 @@ export async function postNewFilm(filmData: FilmData) {
     const response= await axios.post(`${apiUrl}/film`, filmData)
     return response.data
 }
+

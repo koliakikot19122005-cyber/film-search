@@ -3,7 +3,7 @@ import { categoryList } from '../lib/categories.ts'
 import { useState, useEffect } from 'react';
 import { getFilmList, postNewFilm } from '../lib/api.ts';
 import type { FilmData } from '../lib/types.ts';
-
+//отримання фільмів з бази і отримання на головній сторінці починаємо з контролера api
 
 export default function AdminCreatePage() {
   const [title, setTitle] = useState('');
@@ -19,14 +19,27 @@ export default function AdminCreatePage() {
     });
   }, []);
 
+function formReset(){
+  setTitle('')
+  setDescription('')
+  setCategories([])
+  setSelectedFilm('')
+}
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     console.log(selectedFilm, categories, title, description);
     const selectedCategories = categories.filter(item => item.selected).map(item => item.name)
-    const answer = postNewFilm({ url: selectedFilm, categories: selectedCategories, title, description })
-    alert(answer)
+    const answer = await postNewFilm({ url: selectedFilm, categories: selectedCategories, title, description })
+    // alert(answer)
     console.log(answer)
+    if (answer == 'ok') {
+      alert('success')
+    formReset()
+    } else {
+      alert('ERROR')
+
+    }
   }
 
   function tagToggle(i: number) {

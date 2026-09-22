@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
-import { getCategories } from '../lib/api';
 import { NavLink } from 'react-router-dom';
+
 function AdminSideBar() {
+
     const [subpages, setSubpages] = useState([
         { text: 'Create', url: '/admin/create' },
         { text: 'Comments', url: '/admin/comments' },
         { text: 'Stats', url: '/admin/stats' },
     ]);
-
-
 
     return (
         <aside>

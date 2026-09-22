@@ -1,13 +1,24 @@
 import { useState, useEffect } from 'react';
-import { getCategories } from '../lib/api';
 import { categoryList } from '../lib/categories';
-function SideBar() {
+import { getFilms } from '../lib/api';
+import { data } from 'react-router';
+import type { FilmData } from '../lib/types';
+//Відобразити фільми на головній з отриманих данних 
+//Реалізувати на БК виборку по категоріях
+//
+interface SideBarProps {
+    onData: (data: {ok: boolean, films:FilmData[]}) => void;
+}
+
+function SideBar({onData}: SideBarProps) {
     const [categories, setCategories] = useState(categoryList);
 
     useEffect(() => {
         const queryParams = getSelectedCategories();
-        const newData = getCategories(queryParams);
-        console.log(newData);
+        getFilms(queryParams).then(newData => {
+            console.log(newData)
+            onData(newData)
+        })
     }, [categories]);
 
     async function selectToggle(index: number) {
