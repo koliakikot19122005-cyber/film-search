@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import SideBar from '../components/SideBar.tsx'
 import type { FilmData } from '../lib/types';
+import { NavLink } from 'react-router-dom';
 
 export default function HomePage() {
 
@@ -19,13 +20,15 @@ export default function HomePage() {
                 <p>Welcome to the Film Search App!</p>
                 <div className="film-card-container">
                     {films.map((f: FilmData) => (
-                        <div className='film-card'>
-                            <h2>{f.title}</h2>
-                            <p>{f.description}</p>
-                            <div className="category-teg-container">
-                                {f.categories.map(c => (<span className='category-teg'>{c}</span>))}
+                        <NavLink to={`/film-page/${f._id}`}>
+                            <div className='film-card'>
+                                <h2>{f.title}</h2>
+                                <p>{f.description}</p>
+                                <div className="category-teg-container">
+                                    {f.categories.map(c => (<span className='category-teg'>{c}</span>))}
+                                </div>
                             </div>
-                        </div>
+                        </NavLink>
                     ))}
                 </div>
             </main>

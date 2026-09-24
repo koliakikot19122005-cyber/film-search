@@ -26,3 +26,8 @@ export async function postNewFilm(filmData: FilmData) {
     return response.data
 }
 
+
+export async function getFilm(id:string) {
+    const response= await axios.get(`${apiUrl}/film/${id}`)
+    return response.data
+}

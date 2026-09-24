@@ -1,4 +1,4 @@
-const Film=require('./models/film.js')
+const Film = require('./models/film.js')
 const cors = require('cors')
 const express = require('express');
 const app = express();
@@ -21,13 +21,24 @@ app.get('/', (req, res) => {
   res.send('Film search api server V1');
 });
 
-app.get('/api/films', async(req, res) => {
+app.get('/api/films', async (req, res) => {
   const { categories } = req.query;
   // const categories = req.query.categories;
-  const films=await Film.find()
+  const films = await Film.find()
   console.log(categories);
-  res.send({films,ok:true});
+  res.send({ films, ok: true });
 });
+
+app.get('/api/film/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    console.log(id)
+    const film = await Film.findById(id)
+    res.send({film, ok:true})
+  } catch (error) {
+    res.send('error')
+  }
+})
 
 app.post('/api/film', (req, res) => {
   try {
@@ -39,6 +50,8 @@ app.post('/api/film', (req, res) => {
   }
 })
 
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
