@@ -22,9 +22,16 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/films', async (req, res) => {
-  const { categories } = req.query;
-  // const categories = req.query.categories;
-  const films = await Film.find()
+  const categories = req.query.categories?.split(',');
+  let films = []
+  if (categories[0].length == 0) {
+    films = await Film.find()
+  }
+  else {
+    films = await Film.find({
+      categories: { $in: categories }
+    });
+  }
   console.log(categories);
   res.send({ films, ok: true });
 });
@@ -34,7 +41,7 @@ app.get('/api/film/:id', async (req, res) => {
     const id = req.params.id
     console.log(id)
     const film = await Film.findById(id)
-    res.send({film, ok:true})
+    res.send({ film, ok: true })
   } catch (error) {
     res.send('error')
   }

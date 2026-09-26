@@ -19,13 +19,13 @@ export default function HomePage() {
                 <h1>Film Search</h1>
                 <p>Welcome to the Film Search App!</p>
                 <div className="film-card-container">
-                    {films.map((f: FilmData) => (
-                        <NavLink to={`/film-page/${f._id}`}>
+                    {films.map((f: FilmData, i) => (
+                        <NavLink to={`/film-page/${f._id}`} key={"card"+i}>
                             <div className='film-card'>
                                 <h2>{f.title}</h2>
                                 <p>{f.description}</p>
                                 <div className="category-teg-container">
-                                    {f.categories.map(c => (<span className='category-teg'>{c}</span>))}
+                                    {f.categories.map((c,i) => (<span className='category-teg' key={"teg"+ i}>{c}</span>))}
                                 </div>
                             </div>
                         </NavLink>
