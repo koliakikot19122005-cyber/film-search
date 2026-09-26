@@ -1,8 +1,8 @@
 import axios from "axios";
 import type { FilmData } from "./types";
+import { apiUrl, fileServerUrl } from "../config";
 
-const apiUrl=" http://localhost:3001/api";
-const fileServerUrl="http://localhost:3000";
+
 
 export async function getFilms(qeryParams: string) {
     const response = await axios.get(`${apiUrl}/films`, {

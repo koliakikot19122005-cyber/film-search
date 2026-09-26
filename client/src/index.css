@@ -16,6 +16,7 @@ h6 {
 main {
   padding: 10px;
   text-align: center;
+  width: 100%;
 }
 
 p {
@@ -212,4 +213,15 @@ select {
   border-radius: 1rem;
   padding: 0 0.5rem;
 
+}
+
+.film-video {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
+  border-radius: 12px;
+  margin: auto;
 }
