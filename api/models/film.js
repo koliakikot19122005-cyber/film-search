@@ -4,7 +4,8 @@ const Film = mongoose.model('Film', {
   url: String,
   categories: [String],
   title: String,
-  description: String
+  description: String,
+  preview: String
 });
 
 

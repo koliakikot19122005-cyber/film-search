@@ -23,10 +23,12 @@ export default function HomePage() {
                         <NavLink to={`/film-page/${f._id}`} key={"card"+i}>
                             <div className='film-card'>
                                 <h2>{f.title}</h2>
+                                <img src={f.preview} alt={f.title} />
                                 <p>{f.description}</p>
                                 <div className="category-teg-container">
                                     {f.categories.map((c,i) => (<span className='category-teg' key={"teg"+ i}>{c}</span>))}
                                 </div>
+                                
                             </div>
                         </NavLink>
                     ))}
