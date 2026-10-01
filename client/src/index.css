@@ -200,6 +200,11 @@ select {
   padding: 1rem;
   background-color: #705304;
 }
+.film-card.admin  {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  height: 250px;
+}
 
 .film-card img {
   width: 100%;
@@ -208,6 +213,11 @@ select {
   margin-bottom: 0.5rem;
 }
 
+.admin-controls{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
 .category-teg-container {
   display: flex;
   flex-wrap: wrap;

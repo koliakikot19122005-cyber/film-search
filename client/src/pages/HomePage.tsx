@@ -2,7 +2,7 @@ import { useState } from 'react'
 import SideBar from '../components/SideBar.tsx'
 import type { FilmData } from '../lib/types';
 import { NavLink } from 'react-router-dom';
-
+import {mode} from '../config.ts';
 export default function HomePage() {
 
     const [films, setFilms] = useState([])
@@ -21,14 +21,19 @@ export default function HomePage() {
                 <div className="film-card-container">
                     {films.map((f: FilmData, i) => (
                         <NavLink to={`/film-page/${f._id}`} key={"card"+i}>
-                            <div className='film-card'>
+                            <div className={mode === 'admin' ? 'film-card admin' : 'film-card'}>
                                 <h2>{f.title}</h2>
                                 <img src={f.preview} alt={f.title} />
                                 <p>{f.description}</p>
                                 <div className="category-teg-container">
                                     {f.categories.map((c,i) => (<span className='category-teg' key={"teg"+ i}>{c}</span>))}
                                 </div>
-                                
+                                {mode === 'admin' && (
+                                    <div className="admin-controls">
+                                        <button>Edit</button>
+                                        <button>Delete</button>
+                                    </div>
+                                )}
                             </div>
                         </NavLink>
                     ))}
