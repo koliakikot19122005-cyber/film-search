@@ -2,22 +2,22 @@ import { useState, useEffect } from 'react';
 import { categoryList } from '../lib/categories';
 import { getFilms } from '../lib/api';
 import { data } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilms } from '../store/filmSlice';
 import type { FilmData } from '../lib/types';
-//Відобразити фільми на головній з отриманих данних 
-//Реалізувати на БК виборку по категоріях
-//
-interface SideBarProps {
-    onData: (data: {ok: boolean, films:FilmData[]}) => void;
-}
+import { setQueryParams } from '../store/appSlice';
 
-function SideBar({onData}: SideBarProps) {
+
+function SideBar() {
     const [categories, setCategories] = useState(categoryList);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const queryParams = getSelectedCategories();
+        dispatch(setQueryParams(queryParams));
         getFilms(queryParams).then(newData => {
             console.log(newData)
-            onData(newData)
+            dispatch(setFilms(newData.films))
         })
     }, [categories]);
 

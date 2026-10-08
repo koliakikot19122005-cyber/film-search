@@ -31,3 +31,8 @@ export async function getFilm(id:string) {
     const response= await axios.get(`${apiUrl}/film/${id}`)
     return response.data
 }
+
+export async function deleteFilm(id:string) {
+    const response= await axios.delete(`${apiUrl}/film/${id}`)
+    return response.data
+}

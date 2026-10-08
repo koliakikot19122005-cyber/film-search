@@ -49,11 +49,22 @@ app.get('/api/film/:id', async (req, res) => {
   }
 })
 
-app.post('/api/film', (req, res) => {
+app.delete('/api/film/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    const film = await Film.findByIdAndDelete(id)
+    res.send({ film, ok: true })
+  } catch (error) {
+    res.send('error')
+  }
+})
+
+app.post('/api/film', async (req, res) => {
   try {
     console.log(req.body)
     const film = new Film(req.body)
-    film.save().then(() => res.send(`ok`));
+    await film.save()
+    res.send({ film, ok: true })
   } catch (error) {
     res.send('error')
   }
