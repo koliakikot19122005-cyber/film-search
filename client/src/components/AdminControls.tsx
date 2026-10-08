@@ -3,6 +3,7 @@ import type { FilmData } from '../lib/types';
 import { deleteFilm } from '../lib/api.ts';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilms } from '../store/filmSlice.ts';
+import { updateFilms } from '../services/film.service.ts';
 import { getFilms } from '../lib/api.ts';
 
 export default function AdminControls({ item }: { item: FilmData; }) {
@@ -14,8 +15,9 @@ export default function AdminControls({ item }: { item: FilmData; }) {
         const answer = await deleteFilm(id)
         console.log("deleteItem", answer)
         console.log(e)
-        const newData = await getFilms(queryParams)
-        dispatch(setFilms(newData.films))
+        // const newData = await getFilms(queryParams)
+        // dispatch(setFilms(newData.films))
+        await updateFilms();
     }
 
     return (
