@@ -14,3 +14,4 @@ export async function updateFilms() {
         console.error(error);
     }
 }
+

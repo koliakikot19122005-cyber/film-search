@@ -8,15 +8,9 @@ import { getFilms } from '../lib/api.ts';
 
 export default function AdminControls({ item }: { item: FilmData; }) {
 
-    const dispatch = useDispatch();
-    const queryParams = useSelector((state: any) => state.app.queryParams);
     async function deleteItem(e: React.MouseEvent<HTMLButtonElement>, id: string) {
         e.preventDefault();
         const answer = await deleteFilm(id)
-        console.log("deleteItem", answer)
-        console.log(e)
-        // const newData = await getFilms(queryParams)
-        // dispatch(setFilms(newData.films))
         await updateFilms();
     }
 

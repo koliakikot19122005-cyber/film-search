@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFilms } from '../store/filmSlice';
 import type { FilmData } from '../lib/types';
 import { setQueryParams } from '../store/appSlice';
-
+import { updateFilms } from '../services/film.service';
 
 function SideBar() {
     const [categories, setCategories] = useState(categoryList);
@@ -15,10 +15,7 @@ function SideBar() {
     useEffect(() => {
         const queryParams = getSelectedCategories();
         dispatch(setQueryParams(queryParams));
-        getFilms(queryParams).then(newData => {
-            console.log(newData)
-            dispatch(setFilms(newData.films))
-        })
+        updateFilms().then();
     }, [categories]);
 
     async function selectToggle(index: number) {
@@ -28,9 +25,8 @@ function SideBar() {
             console.log(newCategories[index].selected);
             return newCategories;
         });
-
-
     }
+
     function getSelectedCategories() {
         const qeryParams = categories
             .filter(category => category.selected)
