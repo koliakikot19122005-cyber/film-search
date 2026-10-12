@@ -5,19 +5,19 @@ import { NavLink } from 'react-router-dom';
 import { mode } from '../config.ts';
 import AdminControls from '../components/AdminControls.tsx';
 import { useDispatch, useSelector } from 'react-redux';
-
+import {filmFilter, updateFilms} from '../services/film.service.ts';
 export default function HomePage() {
 
  
-    const dispatch = useDispatch();
-    const filmsFromStore = useSelector((state: any) => state.films.list);
+    const filmsFromStore = useSelector((state: any) => state.films.filteredList);
 
     return (
         <div className="main-container">
             <SideBar/>
             <main className="home-page">
                 <h1>Film Search</h1>
-                <p>Welcome to the Film Search App!</p>
+<input className="search-input" onChange={(e) => filmFilter(e.target.value)} type="search" placeholder="Search films..." />
+                
                 <div className="film-card-container">
                     {filmsFromStore.map((f: FilmData, i) => (
                         <NavLink to={`/film-page/${f._id}`} key={"card" + i}>
