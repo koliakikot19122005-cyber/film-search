@@ -188,22 +188,23 @@ select {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch;
   gap: 1rem;
-
 }
 
 
 .film-card {
   width: 200px;
-  height: 200px;
+  height: 100%;
   border-radius: 1rem;
   padding: 1rem;
   background-color: #705304;
+  box-sizing: border-box;
 }
 .film-card.admin  {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  height: 250px;
+  /* height: 330px; */
 }
 
 .film-card img {
