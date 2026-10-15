@@ -1,6 +1,7 @@
 export default function ContactPage() {
     return (
         <div className="main-container">
+            <main className="contact-page">
             <h1>Contact Page</h1>
             <h2>Ми завжди на зв'язку</h2>
             <p>
@@ -11,6 +12,7 @@ export default function ContactPage() {
                 <li>Електронна пошта: info@filmsearch.com</li>
                 <li>Телефон: +380 123 456 789</li>
             </ul>
+            </main>
         </div>
     )
 }
