@@ -1,4 +1,4 @@
-import { mode } from '../config.ts';
+
 import type { FilmData } from '../lib/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilms } from '../store/filmSlice.ts';
@@ -6,6 +6,7 @@ import { updateFilms, removeFilm } from '../services/film.service.ts';
 import { getFilms } from '../lib/api.ts';
 
 export default function AdminControls({ item }: { item: FilmData; }) {
+const mode= useSelector((state: any) => state.app.mode);
 
     async function deleteItem(e: React.MouseEvent<HTMLButtonElement>, id: string) {
         e.preventDefault();

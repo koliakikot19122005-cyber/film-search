@@ -8,6 +8,7 @@ import AboutPage from './pages/AboutPage.tsx'
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import AdminCreatePage from './pages/AdminCreatePage.tsx'
 import FilmPage from './pages/FilmPage.tsx'
+import LoginPage from './pages/LoginPage.tsx'
 function App() {
 
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/admin/create" element={<AdminCreatePage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
             <Footer />
       </BrowserRouter>

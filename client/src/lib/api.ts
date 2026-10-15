@@ -36,3 +36,9 @@ export async function deleteFilm(id:string) {
     const response= await axios.delete(`${apiUrl}/film/${id}`)
     return response.data
 }
+
+
+export async function loginUser(login: string, password: string) {
+    const response = await axios.post(`${apiUrl}/login`, { login, password });
+    return response.data;
+}

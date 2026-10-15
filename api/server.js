@@ -71,6 +71,16 @@ app.post('/api/film', async (req, res) => {
 })
 
 
+app.post('/api/login', async (req, res) => {
+  const { login, password } = req.body
+  if (login === 'admin' && password === '123') {
+    res.send({ ok: true , status: 'admin'})
+  } else {
+    res.send({ ok: false })
+  }
+})
+
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

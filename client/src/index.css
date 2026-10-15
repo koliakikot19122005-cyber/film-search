@@ -252,3 +252,8 @@ select {
  margin: 1rem auto 2rem auto;
   display: block;
 }
+
+.login-form {
+  margin: 20vh auto 0 auto;
+
+}

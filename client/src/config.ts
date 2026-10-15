@@ -2,4 +2,4 @@
 export const apiUrl=" http://localhost:3001/api";
 export const fileServerUrl="http://localhost:3000";
 
-export const mode = 'admin'; // 'admin' or 'user'
+// export const mode = 'admin'; // 'admin' or 'user'
