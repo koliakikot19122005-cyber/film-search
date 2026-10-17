@@ -170,15 +170,15 @@ export default function AdminCreatePage() {
 
     console.log(answer);
 
-    if (answer === 'ok') {
-
-      alert('success');
-
+    if (answer.ok) {
       formReset();
+      alert('success');
+  
 
     } else {
 
       alert('ERROR');
+
 
     }
   }

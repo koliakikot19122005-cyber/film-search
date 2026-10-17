@@ -5,6 +5,6 @@ export interface FilmData{
   categories: string[]; 
   title: string;
   description: string;
-  preview: string;
+  preview: string|null;
 }
 
